@@ -1,0 +1,1 @@
+{"ast":null,"code":"import { RtlComponent } from \"./rtl.component\";\nexport var RtlRoutes = [{\n  path: \"\",\n  children: [{\n    path: \"rtl\",\n    component: RtlComponent\n  }]\n}];","map":null,"metadata":{},"sourceType":"module"}

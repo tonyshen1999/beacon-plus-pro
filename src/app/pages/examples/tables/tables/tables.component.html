@@ -1,0 +1,65 @@
+
+
+
+<div class=" content">
+
+    <div class=" dropdown" dropdown>
+        <button aria-expanded="false" aria-haspopup="true" class=" btn btn-secondary dropdown-toggle dropdown-toggle" data-toggle="dropdown" dropdownToggle id="dropdownMenuButton" type="button">
+          Select Table
+        </button>
+        <div aria-labelledby="dropdownMenuButton" class=" dropdown-menu" *dropdownMenu>
+            <ul class=" dropdown-navbar">
+                <li class="dropdown-item" *ngFor="let table of tableList">
+                  <a href="javascript:void(0)" (value)="table" (click)="pullTable(table)"ngbDropdownItem >
+                    {{table}}
+                  </a>
+               
+              </ul>
+        </div>
+      </div>
+
+    <!-- <span class=" nav-item" ngbDropdown>
+      <button class="btn btn-secondary dropdown-toggle" type="button" aria-haspopup="true"data-toggle="dropdown" href="javascript:void(0)" ngbDropdownToggle>
+        Select Table
+      </button>
+      <ul class=" dropdown-navbar" ngbDropdownMenu>
+        <li class=" nav-link" *ngFor="let table of tableList">
+          <a class=" nav-item" href="javascript:void(0)" (value)="table" (click)="pullTable(table)"ngbDropdownItem >
+            {{table}}
+          </a>
+       
+      </ul>
+    </span> -->
+  
+  
+    <div class=" row">
+      <div class=" col-md-12">
+        <div class=" card">
+          <div class=" card-header">
+            <h4 class=" card-title">{{currentTableName}}, {{period}}</h4>
+          </div>
+          <div class=" card-body">
+            <div class=" table-responsive">
+              <table class=" table tablesorter" id="">
+                <thead class=" text-primary">
+                  <tr >
+                    <th *ngFor="let h of currentTableHeaders">{{h}}</th>
+                    
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let r of currentTable">
+                    <td *ngFor="let h of currentTableHeaders">{{r[h]}}</td>
+                    
+                  </tr>
+                  
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+     
+    </div>
+  </div>
+  
