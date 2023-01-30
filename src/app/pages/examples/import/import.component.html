@@ -1,0 +1,57 @@
+<div class="content">
+    
+    <div class="container">
+
+        <div class=" row">
+            <div class=" col-sm-6 text-left">
+                <h2 >Import Tables</h2>
+                <input type="file" appReadexcel (eventEmitter)="DataFromEventEmitter($event)" />
+
+            </div>
+            <div class=" col-sm-6 text-right">
+                <button class="btn btn-group" (click)="submitClicked()" [disabled]="disableButton" [routerLink]="['/dashboard/:id']">
+                    Submit
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="container" *ngIf ="showTable">
+        <table class=" table tablesorter" id="">
+            <thead class=" text-primary">
+              <tr>
+                <th>Table</th>
+                <th>Rows</th>
+                <th>Included</th>
+                <th>Missing Columns</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let n of sheetInfo.keys()">
+                <td>{{n}}</td>
+                <td>{{sheetInfo.get(n).rowCount}}</td>
+                <td>{{sheetInfo.get(n).included}}</td>
+                <td *ngIf="sheetInfo.get(n).missingColumns.length>0;else notMissing">
+                    <a 
+                        active
+                        placement="end"
+                        [ngbPopover]="sheetInfo.get(n).missingColumns"
+                        popoverTitle="Missing Columns:"
+                    >
+                        {{sheetInfo.get(n).missingColumns.length}}
+                    </a>
+                </td>
+                <ng-template #notMissing>
+                  <td>-</td>
+                </ng-template>
+              </tr>
+            </tbody>
+            
+          </table>
+    </div>
+
+
+</div>

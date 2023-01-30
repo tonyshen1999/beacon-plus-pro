@@ -6,19 +6,14 @@
         <div class=" card-header">
           <div class=" row">
             <div class=" col-sm-4 text-left">
-              <h5 class=" card-category">Version: {{scnVersion}}, Period: {{period}}</h5>
+              <h5 class=" card-category">Version: {{scnVersion}}</h5>
 
 
-              <h2 class=" card-title">SCENARIO {{scnId}}, {{scnName}} </h2>
-              <button class="btn btn-light" (click)="open(content)">Create/Update Period</button>
-
-            </div>
-
-            <div class=" col-sm-8 text-right">
-              <button class="btn btn-group">Export Scenario</button>
-
+              <h2 class=" card-title">SCENARIO {{scnId}}: {{scnName}} </h2>
+              <!-- <button class="btn btn-light" (click)="open(content)">Create/Update Period</button> -->
 
             </div>
+
 
           </div>
         </div>
@@ -64,6 +59,74 @@
 
 
   </ng-template>
+
+
+<div class = "row">
+
+
+<!-- Period Section -->
+  <div class=" col-lg-8 col-md-8">
+    <div class=" card card-stats">
+      <div class=" card-body">
+        <div class=" row">
+         
+            <!-- <div class=" info-icon text-center icon-primary">
+              
+            </div> -->
+            <div class = "col">
+              <h4 class = "text-center" >Period: {{period}}</h4>
+              <p class = "text-center" >
+                <a 
+                
+                
+                routerLinkActive="active"
+                data-target="#myModal"
+                (click)="openModal(modalTemplate)">
+         
+                Update Period
+
+                </a>
+              </p>
+
+            </div>
+            
+          
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+
+  <ng-template #modalTemplate>
+    <p> hi hi hi </p>
+  </ng-template>
+
+
+
+
+  
+
+  <div class=" col-lg-4 col-md-8">
+    <div class=" card card-stats">
+      <div class=" card-body">
+        <div class=" row">
+         
+            <!-- <div class=" info-icon text-center icon-primary">
+              
+            </div> -->
+            <div class = "col">
+              <button class = "btn btn-primary">Export Scenario</button>
+            </div>
+          
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
 
   <div class=" row">
     <div class=" col-lg-6 col-md-12">

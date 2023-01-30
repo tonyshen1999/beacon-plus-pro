@@ -1,9 +1,10 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit,TemplateRef } from "@angular/core";
 import Chart from "chart.js";
 import { PeriodService } from 'src/app/services/period.service';
 import { NgForm } from '@angular/forms';
 import {ModalDismissReasons,NgbModal} from '@ng-bootstrap/ng-bootstrap'
 import { DashboardService } from './dashboard.service';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: "app-dashboard",
@@ -25,7 +26,13 @@ export class DashboardComponent implements OnInit {
   period:string = "N/A";
   versions:any[]=[];
   closeResult:string;
-  constructor(private periodService:PeriodService,private modalService:NgbModal, private dashboardService:DashboardService) {}
+  public modalRef: BsModalRef;
+
+  constructor(private periodService:PeriodService,
+              private modalService:NgbModal, 
+              private dashboardService:DashboardService,
+              private BSModalService: BsModalService
+              ) {}
 
 
   onSubmit(f:NgForm){
@@ -35,6 +42,17 @@ export class DashboardComponent implements OnInit {
     
     // console.log("nice")
   }
+
+  openModal(modalTemplate: TemplateRef<any>) {
+    this.modalRef = this.BSModalService.show(modalTemplate,
+      {
+        class: 'modal-dialogue-centered modal-md',
+        backdrop: 'static',
+        keyboard: true
+      }
+    );
+  }
+
   createPeriod = (f) => {
     console.log(f.id)
     this.dashboardService.createPeriod(f).subscribe(

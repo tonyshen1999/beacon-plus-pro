@@ -48,6 +48,14 @@ export const ROUTES: RouteInfo[] = [
     rtlTitle: ""
 
   },
+  {
+    path: "/import",
+    title: "Import Files",
+    type: "link",
+    icontype: "tim-icons icon-upload",
+    rtlTitle: ""
+
+  },
   // {
   //   path: "/pages",
   //   title: "Pages",

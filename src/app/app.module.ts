@@ -14,6 +14,8 @@ import { ComponentsModule } from "./components/components.module";
 import { RtlLayoutComponent } from "./layouts/rtl-layout/rtl-layout.component";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ScenarioListComponent } from './layouts/scenario-list/scenario-list.component';
+import { ReadexcelDirective } from './directives/readexcel.directive';
+import { ImportComponent } from './pages/examples/import/import.component';
 
 
 @NgModule({
@@ -23,6 +25,8 @@ import { ScenarioListComponent } from './layouts/scenario-list/scenario-list.com
     AuthLayoutComponent,
     RtlLayoutComponent,
     ScenarioListComponent,
+    ReadexcelDirective,
+    ImportComponent,
     
   ],
   imports: [
